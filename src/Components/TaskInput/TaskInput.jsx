@@ -1,14 +1,15 @@
 import { useState } from "react";
-
+import { addTask } from "../../features/task/taskSlice";
+import { useDispatch } from "react-redux";
 const TaskInput = () => {
 const [formText, setFormText] = useState("");
-
+    const dispatch = useDispatch();
 
 const handleTaskSubmit = (e) => {
   e.preventDefault();
   if (formText.trim() === "") return;
   console.log(formText.trim());
-//   dispatch(addTodo(formText.trim()));
+dispatch(addTask(formText.trim()));
   formText("");
 };
 
